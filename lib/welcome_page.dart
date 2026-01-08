@@ -1,6 +1,6 @@
-
-
+import 'package:dami_cha/log_in_page.dart';
 import 'package:flutter/material.dart';
+import 'sign_up_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -29,21 +29,37 @@ class WelcomePage extends StatelessWidget {
 
               const SizedBox(height: 40),
 
-              const Text(
-                'When time is short, dami cha ',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black87,
+              Text.rich(
+                TextSpan(
+                  style: const TextStyle(
+                    fontFamily: 'BerlinSansFB',
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black,
+                  ),
+                  children: const [
+                    TextSpan(text: 'When time is short, '),
+                    TextSpan(
+                      text: 'dami ',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 146, 69),
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    TextSpan(text: 'cha'),
+                  ],
                 ),
               ),
+
               const SizedBox(height: 8),
 
               const Text(
                 'Log In or Sign Up',
                 style: TextStyle(
-                  fontSize: 14,
-                  color: Color.fromARGB(255, 100, 99, 99),
+                  fontFamily: 'BerlinSansFB',
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 85, 84, 84),
+                  fontWeight: FontWeight.w600,
                 ),
               ),
 
@@ -55,7 +71,12 @@ class WelcomePage extends StatelessWidget {
 
                 child: ElevatedButton(
                   onPressed: () {
-                    print('Sign Up buttom pressed');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SignUpPage(),
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black,
@@ -80,14 +101,16 @@ class WelcomePage extends StatelessWidget {
 
                 child: OutlinedButton(
                   onPressed: () {
-                    print('Login page pressed');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LogInPage(),
+                        ),
+                      );
                   },
                   style: OutlinedButton.styleFrom(
                     foregroundColor: Colors.black,
-                    side: const BorderSide(
-                      color: Colors.black,
-                      width: 2,
-                    ),
+                    side: const BorderSide(color: Colors.black, width: 2),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -95,16 +118,12 @@ class WelcomePage extends StatelessWidget {
 
                   child: const Text(
                     'Log In',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-
-                    ),
-                    ) ,
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                   ),
                 ),
+              ),
 
-                SizedBox(height: 40,),
+              SizedBox(height: 40),
             ],
           ),
         ),
